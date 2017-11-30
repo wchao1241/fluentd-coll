@@ -41,7 +41,6 @@ RUN /tmp/build.sh
 
 ENV LD_PRELOAD /opt/td-agent/embedded/lib/libjemalloc.so
 
-CMD [ "/start.sh" ]
+CMD [ "sh", "-c", "/start.sh" ]
 # Run the Fluentd service.
-#ENTRYPOINT ["td-agent"]
-ENTRYPOINT [ "td-agent", "sh", "-c" ]
+ENTRYPOINT ["td-agent"]
