@@ -34,14 +34,14 @@ ENV DEBIAN_FRONTEND noninteractive
 COPY td-agent.conf /etc/td-agent/td-agent.conf
 
 COPY build.sh /tmp/build.sh
-COPY start.sh /tmp/start.sh
+COPY start.sh /start.sh
 RUN chmod +x /tmp/build.sh
-RUN chmod +x /tmp/start.sh
+RUN chmod +x /start.sh
 RUN /tmp/build.sh
 
 ENV LD_PRELOAD /opt/td-agent/embedded/lib/libjemalloc.so
 
-CMD [ "/tmp/start.sh" ]
+CMD [ "/start.sh" ]
 # Run the Fluentd service.
 #ENTRYPOINT ["td-agent"]
-ENTRYPOINT [ "sh", "-c" ]
+ENTRYPOINT [ "td-agent", "sh", "-c" ]
