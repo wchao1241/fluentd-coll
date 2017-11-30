@@ -17,4 +17,4 @@
 sed -i "s/%topic%/$TOPIC_TAG/" /etc/td-agent/td-agent.conf
 sed -i "s/%brokers%/$BROKERS_TAG/" /etc/td-agent/td-agent.conf
 
-/usr/sbin/td-agent $FLUENTD_ARGS
+/bin/sh -c /usr/sbin/td-agent $FLUENTD_ARGS
